@@ -1,0 +1,31 @@
+{
+  "name": "todolistsql",
+  "version": "1.0.0",
+  "description": "to do list with sql",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teqnickels/toDoListSQL.git"
+  },
+  "author": "debrena mcewen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/teqnickels/toDoListSQL/issues"
+  },
+  "homepage": "https://github.com/teqnickels/toDoListSQL#readme",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "chai": "^4.1.2",
+    "chai-change": "^2.1.2",
+    "console.table": "^0.9.1",
+    "mocha": "^3.5.3",
+    "pg": "^7.3.0",
+    "pg-promise": "^6.9.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
+  }
+}
