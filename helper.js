@@ -1,4 +1,6 @@
 const {listTasks} = require('./db/db.js')
+require('console.table');
+
 
 exports.writeToConsole = (results, caller) => {
   switch(caller) {
@@ -11,21 +13,25 @@ exports.writeToConsole = (results, caller) => {
       break;
 
     case 'list':
-      // let arr = []
-      // arr.push(results)
-      console.log(results)
+      format(results)
       break;
     }
 };
+// var todo = {}
+// todo.id = results.id
+// todo.description = results.tasks
 
 const format = (results) => {
-  results.forEach((element, index) => {
-    var todoObj = {}
-    todoObj.id = index + 1
-    todoObj.description = element
-    finalArr.push(todoObj)
+  let infoPair = []
+  // console.log(results)
+  results.forEach(function(element) {
+    let taskArr = []
+    taskArr.push(element.id)
+    taskArr.push(element.task)
+    infoPair.push(taskArr)
   })
-  console.table(finalArr)
+
+  console.table(['id', 'task'], infoPair);
 }
 
 
