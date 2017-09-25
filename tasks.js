@@ -8,27 +8,38 @@ const {writeToConsole, getAllInDb} = require('./helper.js')
 const processCommands = () => {
   switch (command) {
     case 'add':
-      addTask(arg).then((value) => {
-        writeToConsole(value, 'add')
-        pgp.end()
-      })
-    break;
+      return addTask(arg)
+        .then((value) => {
+          writeToConsole(value, 'add')
+        })
+        .catch((err) => {
+          console.log('Error adding task to the database')
+        })
 
     case 'delete':
-      deleteTask(arg).then(function(value) {
-        console.log(arg)
-        writeToConsole(arg, 'delete')
-        pgp.end()
+      return deleteTask(arg)
+        .then(function(value) {
+          writeToConsole(arg, 'delete')
+       })
+      .catch((err) => {
+        console.log('Error, unable to delete requested task')
       })
-    break; 
 
     case 'list':
-      listTasks().then(function (value) {
-        writeToConsole(value, 'list')
-        pgp.end()
-      })
-      break;
-
+      return listTasks()
+        .then(function (value) {
+          writeToConsole(value, 'list')
+        })
   }
 }
+
+//add .catch on processCommands call, add.finally() and inside there close db connection
 processCommands()
+  .catch((err) => {
+    console.log(err, "Unhandled err")
+    pgp.end()
+  })
+  .then((value) => {
+    console.log("Database connection has been closed")
+    pgp.end()
+  })

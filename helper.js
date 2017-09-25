@@ -17,13 +17,10 @@ exports.writeToConsole = (results, caller) => {
       break;
     }
 };
-// var todo = {}
-// todo.id = results.id
-// todo.description = results.tasks
+
 
 const format = (results) => {
   let infoPair = []
-  // console.log(results)
   results.forEach(function(element) {
     let taskArr = []
     taskArr.push(element.id)
