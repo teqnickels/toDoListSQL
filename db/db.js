@@ -2,7 +2,7 @@ const pgPromise = require('pg-promise')
 const pgp = pgPromise()
 const db = pgp(`postgres://${process.env.USER}@localhost:5432/todosql`)
 
-const add = 'INSERT INTO tasks (task) VALUES ($1) RETURNING id'
+const add = 'INSERT INTO tasks (task) VALUES ($1) RETURNING task'
 const deleteTask = 'DELETE FROM tasks WHERE id = $1 RETURNING *'
 const list = 'SELECT id, task FROM tasks'
 
@@ -20,7 +20,3 @@ exports.deleteTask = function(task) {
 
 exports.pgp = pgp
 
-//.catch(err => {
-// console.log(err)
-// return Promise.reject(err)  
-//     })
