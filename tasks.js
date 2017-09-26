@@ -35,6 +35,7 @@ const processCommands = () => {
     case 'list':
       return listTasks()
         .then(function (value) {
+          console.log("VALUE",value)
           writeToConsole(value, 'list')
         }).catch((err) => {
           console.log(err, "Unhandled err")
