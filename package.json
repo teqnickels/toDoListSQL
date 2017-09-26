@@ -4,7 +4,7 @@
   "description": "to do list with sql",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --compilers js:babel-register tests.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +18,9 @@
   "homepage": "https://github.com/teqnickels/toDoListSQL#readme",
   "dependencies": {
     "babel": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
     "chai": "^4.1.2",
-    "chai-change": "^2.1.2",
+    "chai-as-promised": "^7.1.1",
     "console.table": "^0.9.1",
     "mocha": "^3.5.3",
     "pg": "^7.3.0",
