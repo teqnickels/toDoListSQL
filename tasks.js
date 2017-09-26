@@ -18,6 +18,7 @@ const processCommands = () => {
       return addTask(arg)
         .then((value) => {
           writeToConsole(value, 'add')
+          pgp.end()
         })
         .catch((err) => {
           console.log('Error adding task to the database')
@@ -27,6 +28,7 @@ const processCommands = () => {
       return deleteTask(arg)
         .then(function(value) {
           writeToConsole(arg, 'delete')
+          pgp.end()
        })
       .catch((err) => {
         console.log('Error, unable to delete requested task')
@@ -37,6 +39,7 @@ const processCommands = () => {
         .then(function (value) {
           console.log("VALUE",value)
           writeToConsole(value, 'list')
+          pgp.end()
         }).catch((err) => {
           console.log(err, "Unhandled err")
           pgp.end()
